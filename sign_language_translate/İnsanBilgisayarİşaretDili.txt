@@ -1,0 +1,29 @@
+-python3.13 mediappe desteklemediği için kaldırıldı
+
+-python3.10 kuruldu
+
+-mediapipe kuruldu
+
+-scikit-learn kuruldu
+
+
+VSCODE DAKİ DOSYALAR
+-collect_imgs.py +
+-create_dataset.py +
+-train_classifier.py + 
+-inference_classifier.py +
+
+
+
+
+veri eğitimnde k de sorun var 
+
+
+Verilerin kaynağı hangi işaret hangi anlama geliyor
+https://www.iienstitu.com/blog/beden-dili-ifadelerinin-anlamlari
+
+edit_collect_imgs.py hatalı datayı düzeltmek için eklendii
+
+edit_inferece_classifier dosyasında 2. el gördüğnde kapanan inference_classifier dosyası yerine eklendi.
+
+https://www.youtube.com/watch?v=MJCSjXepaAM&ab_channel=Computervisionengineer kaynak videosu.
