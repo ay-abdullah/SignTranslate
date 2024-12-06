@@ -7,7 +7,7 @@ DATA_DIR = './data'
 if not os.path.exists(DATA_DIR):
     os.makedirs(DATA_DIR)
 
-class_to_fix = 20  # Düzeltilmesi gereken sınıf
+class_to_fix = 17  # Düzeltilmesi gereken sınıf
 dataset_size = 100
 
 cap = cv2.VideoCapture(0)

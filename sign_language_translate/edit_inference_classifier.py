@@ -3,8 +3,11 @@ import cv2
 import mediapipe as mp
 import numpy as np
 
-model_dict = pickle.load(open('./model.p', 'rb'))
-model = model_dict['model']
+model_dict = pickle.load(open('./models.p', 'rb'))
+model_rfc = model_dict['model_rfc']
+model_knn = model_dict['model_knn']
+model_svm = model_dict['model_svm']
+
 
 cap = cv2.VideoCapture(0)
 
@@ -17,22 +20,21 @@ hands = mp_hands.Hands(static_image_mode=True, min_detection_confidence=0.3)
 labels_dict = {
     0: 'Ara Beni',
     1: 'Dostluk',
-    2: 'İşaret',
+    2: 'Isaret Etme',
     3: 'Dikkat',
     4: 'Dur,Bekle',
-    5: 'Eğlence',
-    6: 'Güç,Birlik',
-    7: 'Dayanışma,Direniş',
-    8: '***',
-    9: 'Her şey yolunda, Okey',
-    10: 'Reddetme, Hayır',
-    11: 'Merhaba',
-    12: 'Onaylama, Beğenme',
-    13: 'Reddetme',
-    14: 'Uzun ve Başarılı bir yaşam dileme',
-    15: 'Yazı yazma',
-    16: 'Yol gösterme',
-    17: 'Umut etmek',
+    5: 'Eglence',
+    6: 'Guc,Birlik',
+    7: 'Dayanisma,Direnis',
+    8: 'Her sey yolunda, Tamam',
+    9: 'Reddetme, Hayir',
+    10: 'Merhaba, Selam',
+    11: 'Onaylama, Begenme',
+    12: 'Reddetme',
+    13: 'Uzun ve Basarili bir yasam dileme',
+    14: 'Yazi yazma',
+    15: 'Yol gosterme',
+    16: 'Umut etmek',
 }
 
 while True:
@@ -80,7 +82,7 @@ while True:
             y2 = int(max(y_) * H) - 10
 
             try:
-                prediction = model.predict([np.asarray(data_aux)])
+                prediction = model_rfc.predict([np.asarray(data_aux)])
                 predicted_character = labels_dict[int(prediction[0])]
 
                 cv2.rectangle(frame, (x1, y1), (x2, y2), (0, 0, 0), 4)

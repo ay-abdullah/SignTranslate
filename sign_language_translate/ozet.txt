@@ -1,0 +1,23 @@
+collected_imgs.py
+- opencv ile kameradan veri kümesi 17 hareket için toplandı
+
+create_dataset.py
+- elde ettiğimiz görüntülerden sınıfları etiklemek için mediapipe kullandık.
+- MediaPipe  da amaç el hareketlerini ve parmak eklemlerini algılamak. 
+
+El İşaretlerinden Özellik Çıkartma
+
+Eğer MediaPipe el işaretlerini tespit ederse:
+Tespit edilen el işaretlerinin koordinatları (x, y) alınır.
+Koordinatlar, en küçük değerler (min(x_), min(y_)) kullanılarak normalize edilir (yerelleştirilir). Bu, el hareketlerini görüntü boyutundan bağımsız hale getirir.
+Normalize edilmiş koordinatlar, bir özellik listesi (data_aux) olarak saklanır.
+
+train_classifier.py
+
+- veri diziye dönüştürüldü
+- model olarak RandomForestClassifier kullanıldı
+- %80 eğitim ve %20 test verisi olarak veri boyutlandı
+- oluşturulan model kaydedildi
+- model %100 lük başarı oranı verdi
+- q tuşuna bastığında uygulama kapanır
+- Kameradan gelen görüntüleri gerçek zamanlı olarak işler.
